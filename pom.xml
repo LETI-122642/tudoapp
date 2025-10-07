@@ -92,11 +92,11 @@
                         </exclusion>
                     </exclusions>
                 </dependency>
-                <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+                <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
                 <dependency>
-                    <groupId>javax.mail</groupId>
-                    <artifactId>mail</artifactId>
-                    <version>1.4.7</version>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-email</artifactId>
+                    <version>1.6.0</version>
                 </dependency>
             </dependencies>
             <build>
