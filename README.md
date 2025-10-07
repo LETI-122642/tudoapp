@@ -1,8 +1,12 @@
 # Tudoapp README
 
-# Application Software Engeneering
+# Application Software Engineering
 
+Anilson Mario LETI-110917
 
+André Sampaio LETI-111610
+
+Simão Afonso LETI-122642
 
 - [ ] TODO Replace or update this README with instructions relevant to your application
 
