@@ -10,6 +10,8 @@ Simão Afonso LETI-122642
 
 - [ ] TODO Replace or update this README with instructions relevant to your application
 
+
+
 ## Project Structure
 
 The sources of your Tudoapp have the following structure:
