@@ -1,0 +1,33 @@
+name: Build Java Project
+
+on:
+  push:
+    branches:
+      - main  # (a) Desencadeia quando há push para a branch principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Fazer checkout do repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Passo 2: Configurar o Java (b)
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21  # ou superior, se necessário
+
+      # Passo 3: Construir o projeto com Maven (c)
+      - name: Build with Maven
+        run: mvn clean package -B
+
+      # Passo 4: Publicar o ficheiro .jar como artefacto (d)
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: target/*.jar
