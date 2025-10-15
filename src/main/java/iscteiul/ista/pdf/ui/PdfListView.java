@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @Route("pdf")
 @PageTitle("PDF List")
-@Menu(order = 1, icon = "vaadin:file-document", title = "PDF List")
+@Menu(order = 1, icon = "vaadin:file-text", title = "PDF List")
 class PdfListView extends Main {
 
     private final PdfService pdfService;
