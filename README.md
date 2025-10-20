@@ -8,6 +8,37 @@ André Sampaio LETI-111610
 
 Simão Afonso LETI-122642
 
+name: Build Java Maven Project
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fazer checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Compilar com Maven
+        run: mvn clean package
+
+      - name: Publicar artefacto .jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: target/*.jar
+
+
+A pipeline garante que a aplicação é compilada e o artefacto gerado fica automaticamente acessível após cada atualização do código, promovendo um processo de integração contínua eficiente e sem dependência do ambiente local de desenvolvimento.
+
 - [ ] TODO Replace or update this README with instructions relevant to your application
 
 ## Project Structure
