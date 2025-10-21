@@ -12,9 +12,11 @@ import java.time.LocalDateTime;
 
 @Service
 public class ForexService {
-    @Autowired
-    private ForexExchangeRepository repository;
 
+    private ForexExchangeRepository repository;
+    public ForexService(ForexExchangeRepository repository) {
+        this.repository = repository;
+    }
     public double convert(String from, String to, double amount) {
         CurrencyUnit fromCur = Monetary.getCurrency(from);
         CurrencyUnit toCur = Monetary.getCurrency(to);
