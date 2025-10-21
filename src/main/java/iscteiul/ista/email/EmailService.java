@@ -25,13 +25,11 @@ public class EmailService {
         this.repository = repository;
     }
 
-    /** Igual ao PdfService: devolve a lista para o Grid. */
     public List<EmailSent> list() {
-        return repository.findAll(); // se quiseres por ordem, usa Sort no repo
+        return repository.findAll(); 
     }
 
     public void sendEmail(String to, String subject, String message) throws EmailException {
-        // Envio real (se tiveres credenciais). Se não tiveres, comenta este bloco.
         if (!username.isBlank()) {
             SimpleEmail email = new SimpleEmail();
             email.setHostName(mailHost);
@@ -44,7 +42,6 @@ public class EmailService {
             email.addTo(to);
             email.send();
         }
-        // Regista sempre o envio (real ou simulado)
         repository.save(new EmailSent(to, subject, message));
     }
 }
