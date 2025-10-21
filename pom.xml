@@ -21,10 +21,8 @@
         <vaadin.version>24.9.2</vaadin.version>
     </properties>
 
-    <!-- ✅ Secção correta de dependencyManagement -->
     <dependencyManagement>
         <dependencies>
-            <!-- BOM do Vaadin (define versões automáticas para dependências Vaadin) -->
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
@@ -33,7 +31,6 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- Overrides de versões vulneráveis -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
@@ -50,7 +47,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Dependências de negócio -->
         <dependency>
             <groupId>org.javamoney</groupId>
             <artifactId>moneta</artifactId>
@@ -64,7 +60,6 @@
             <version>1.4.4</version>
         </dependency>
 
-        <!-- Vaadin -->
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin</artifactId>
@@ -77,7 +72,6 @@
             <version>${vaadin.version}</version>
         </dependency>
 
-        <!-- Spring + JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -94,7 +88,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Funcionalidades específicas -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
