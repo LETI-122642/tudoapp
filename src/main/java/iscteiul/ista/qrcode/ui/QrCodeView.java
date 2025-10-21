@@ -40,7 +40,6 @@ public class QrCodeView extends Main {
         this.repository = new QrCodeRepository();
         this.service = new QrCodeService(repository);
 
-        // Upload de ficheiros
         FileBuffer fileBuffer = new FileBuffer();
         upload = new Upload(fileBuffer);
         upload.setAcceptedFileTypes("image/png", "image/jpeg");
@@ -48,23 +47,19 @@ public class QrCodeView extends Main {
         upload.setMaxFileSize(5 * 1024 * 1024); // 5 MB
         upload.setWidth("20em");
 
-        // Botão para ler o código
         readButton = new Button("Ler QR Code", event -> readQrCode(fileBuffer));
         readButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
-        // Pré-visualização da imagem carregada
         preview = new Image();
         preview.setMaxWidth("300px");
         preview.setVisible(false);
 
-        // Tabela de histórico de QR Codes lidos
         qrGrid = new Grid<>(QrCode.class, false);
         qrGrid.addColumn(QrCode::getContent).setHeader("Conteúdo Lido").setAutoWidth(true);
         qrGrid.addColumn(qr -> qr.getCreatedAt().toString()).setHeader("Data de Leitura").setAutoWidth(true);
         qrGrid.setItems(repository.findAll());
         qrGrid.setSizeFull();
 
-        // Layout principal (mesmo estilo que o PDF List)
         setSizeFull();
         addClassNames(
                 LumoUtility.BoxSizing.BORDER,
